@@ -1,5 +1,8 @@
 import tensorflow as tf
+import numpy as np 
+import matplotlib.pyplot as plt
 from tensorflow import keras
+
 
 print(tf.__version__)
 
@@ -12,3 +15,16 @@ fmnist = tf.keras.datasets.fashion_mnist
 
 # Load the training and test split of the fashion MNIST dataset 
 (training_images, training_labels), (test_images, test_labels) = fmnist.load_data()
+
+#Lets prints a training model
+index = 0 
+
+#Set number of characters per orw when printing
+np.set_printoptions(linewidth=320)
+
+#Print the label and image
+print (f'LABEL:{training_labels[index]}')
+print(f'\nIMAGE PIXEL ARRAY:\n {training_images[index]}')
+
+# Visualize the image
+plt.imshow(training_images[index])
